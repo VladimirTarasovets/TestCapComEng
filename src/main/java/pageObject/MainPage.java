@@ -11,25 +11,15 @@ import java.time.Duration;
 import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
 
 public class MainPage {
 
     // для ASIC
-    private static final SelenideElement BANNER_CFD_ASIC = $(byXpath("//button[@data-type='topbanner_cfd_aud_slider']"));
-    private static final SelenideElement BANNER_CFD_BTN_TRADE_NOW_ASIC = $(byXpath("//a[@data-type='topbanner_cfd_aud']"));
-    private static final SelenideElement BANNER_CFD_BTN_PRACTISE_FOR_FREE_ASIC = $(byXpath("//a[@data-type='topbanner_cfd_aud_demo']"));
-
     private static final SelenideElement BANNER_PRO_ASIC = $(byXpath("//button[@data-type='topbanner_pro_au_slider']"));
     private static final SelenideElement BANNER_PRO_START_TRADING = $(byXpath("//a[@data-type='topbanner_pro_au_demo']"));
-    private static final SelenideElement PAGE_SIGN_UP = $(byCssSelector("#s2_f_email"));
+    //
 
-    //
-    // FCA
-    private static final SelenideElement BANNER_SPREAD_BETTING = $(byXpath("//button[@data-type='topbanner_spread_betting_slider']"));
-    private static final SelenideElement BANNER_SPREAD_BETTING_OPEN_ACC = $(byXpath("//a[@data-type='topbanner_spread_betting']"));
-    //
-    // CYSEC and all
-    // BANNERS
     private static final SelenideElement SCROLL_ELM_BANNER = $(byCssSelector(".bannersHome__nav.flex.flex-between.js-bannersHome-nav"));
     private static final SelenideElement SCROLL_ELM_MAIN_BANNER = $(byCssSelector(".bannersHome__wrap.cc-boxMd.grey"));
 
@@ -43,7 +33,6 @@ public class MainPage {
 
     private static final SelenideElement CHECK_SING_UP_FORM = $(byCssSelector(".signup-form"));
     private static final SelenideElement CLOSE_SING_UP_FORM = $(byCssSelector(".button-cleared.small.s_cancel"));
-
 
     // OLD design
 //    private static final SelenideElement TABS_NAV_MTR = $(byXpath("//div[@class='tab-list ']/a[@data-type='Most']"));
@@ -83,24 +72,20 @@ public class MainPage {
     private static final SelenideElement SCROLL_ELM_TRAD_DASHB = $(byCssSelector(".btn.btn--nowrap.btn--darkText.js_signup_new"));
     private static final ElementsCollection COLLECTION_TRAD_DASHB_TRADE_BTN = $$(byCssSelector(".tradersDashboard__btn.btn.btn--empty.js_signup"));
 
-//    private static final SelenideElement SCROLL_ELM_WHY_CHOOSE = $(byCssSelector(".cc-boxXl.cc-counter.js-counter.dark"));
     private static final SelenideElement SCROLL_ELM_WHY_CHOOSE = $(byCssSelector(".promoApps__content"));
     private static final SelenideElement WHY_CHOOSE_TRYN_BTN = $(byCssSelector(".btn.btn--empty.cc-counter__btn.js_signup.__cp_bs.ln-auto.js-analyticsVisible"));
 
-    public void scroll () {
-        SCROLL_ELM_MAIN_BANNER.scrollTo();
-    }
 
     @Step("Choosing a Discover Pro Trading banner")
     public void choiceBannerPRO (){
         SCROLL_ELM_MAIN_BANNER.scrollTo();
         BANNER_PRO_ASIC.click();
-
     }
+
     @Step("Click on the Start Trading button")
     public void clickBtnSTPRO (){
         BANNER_PRO_START_TRADING.click();
-        PAGE_SIGN_UP.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        webdriver().shouldHave(url("https://capital.com/trading/signup"));
         back();
     }
 
