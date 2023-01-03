@@ -153,7 +153,7 @@ public class MainPageTest extends Base {
         mainPage.checkTabsNav_ETF();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(13)
     @DisplayName("SignUp field in the Still Looking For banner")
@@ -164,7 +164,7 @@ public class MainPageTest extends Base {
         mainPage.checkSingUpForm();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(14)
     @DisplayName("SignUp field in the Slider Fade banner")
@@ -174,7 +174,7 @@ public class MainPageTest extends Base {
         mainPage.checkTradeBtnSliderFade();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(15)
     @DisplayName("SignUp field in the Explore our platform banner")
@@ -185,7 +185,7 @@ public class MainPageTest extends Base {
         mainPage.checkSingUpForm();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(16)
     @DisplayName("SignUp field in the banner New to trading?")
@@ -196,7 +196,7 @@ public class MainPageTest extends Base {
         mainPage.checkSingUpForm();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(17)
     @DisplayName("SignUp field in the Calculator banner")
@@ -207,7 +207,7 @@ public class MainPageTest extends Base {
         mainPage.checkSingUpForm();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(18)
     @DisplayName("SignUp field in the Trader's Dashboard banner")
@@ -217,7 +217,7 @@ public class MainPageTest extends Base {
         mainPage.checkTradeBtnTrDashb();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(19)
     @DisplayName("SignUp field in the banner Why choose Capital.com?")
