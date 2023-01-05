@@ -13,20 +13,20 @@ import static com.codeborne.selenide.Selenide.open;
 public class HeaderPageTest extends Base {
     HeaderPage headerPage = new HeaderPage();
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(1)
-    @DisplayName("Login field")
+    @DisplayName("Login field.")
     public void checkLogin (String license, String logLicense) {
         open(license);
         String log = logLicense;
         headerPage.loginFieldFormAppears();
     }
 
-    @ParameterizedTest(name = "{displayName}. {1}")
+    @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(2)
-    @DisplayName("SignUp field")
+    @DisplayName("SignUp field.")
     public void checkSingUp (String license, String logLicense) {
         open(license);
         String log = logLicense;
