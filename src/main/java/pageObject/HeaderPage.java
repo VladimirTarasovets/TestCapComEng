@@ -15,9 +15,9 @@ public class HeaderPage {
     public static final SelenideElement COOKIE = $(byCssSelector("#onetrust-accept-btn-handler"));
 
     private static final SelenideElement LANGUAGE_BTN = $(byCssSelector(".cc-header__btn.cc-header__btn--lng.showLg.js-langSwitch"));
-    public static final SelenideElement EN = $(byCssSelector(".cc-flags.cc-flags--gb"));
-    public static final SelenideElement AR = $(byCssSelector(".cc-flags.cc-flags--ab"));
-    public static final SelenideElement ID = $(byCssSelector(".cc-flags.cc-flags--id"));
+    private static final SelenideElement EN = $(byCssSelector(".cc-flags.cc-flags--gb"));
+    private static final SelenideElement AR = $(byCssSelector(".cc-flags.cc-flags--ab"));
+    private static final SelenideElement ID = $(byCssSelector(".cc-flags.cc-flags--id"));
     private static final SelenideElement BG = $(byCssSelector(".cc-flags.cc-flags--bg"));
     private static final SelenideElement CZ = $(byCssSelector(".cc-flags.cc-flags--cz"));
     private static final SelenideElement DA = $(byCssSelector(".cc-flags.cc-flags--dk"));

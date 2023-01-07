@@ -1,23 +1,45 @@
-package tests;
+package tests.en;
 
-import io.qameta.allure.Description;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import pageObject.HeaderPage;
 import pageObject.MainPage;
 import org.junit.jupiter.api.*;
+import tests.Base;
 
 import static com.codeborne.selenide.Selenide.open;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@DisplayName("Checking the main page of the site")
-public class MainPageTest extends Base {
+@DisplayName("Checking the main page of the site. English")
+public class MainPageTestEN extends Base {
     MainPage mainPage = new MainPage();
+    HeaderPage headerPage = new HeaderPage();
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(1)
-    @DisplayName("SignUp field in the CFD banner. Trade Now button.")
+    @DisplayName("Checking the site header. Login form.")
+    public void checkLogin (String license, String logLicense) {
+        open(license);
+        String log = logLicense;
+        headerPage.loginFieldFormAppears();
+    }
+
+    @ParameterizedTest(name = "{1}")
+    @CsvFileSource(resources = "/Licence.csv")
+    @Order(2)
+    @DisplayName("Checking the site header. SignUp form.")
+    public void checkSingUp (String license, String logLicense) {
+        open(license);
+        String log = logLicense;
+        headerPage.singUpFieldFormAppears();
+    }
+
+    @ParameterizedTest(name = "{1}")
+    @CsvFileSource(resources = "/Licence.csv")
+    @Order(3)
+    @DisplayName("SignUp form in the CFD banner. Trade Now button.")
     public void checkSingUP_CFD_BtnTN (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -28,8 +50,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(2)
-    @DisplayName("SignUp field in the CFD banner. Practice for free button.")
+    @Order(4)
+    @DisplayName("SignUp form in the CFD banner. Practice for free button.")
     public void checkSingUP_CFD_BtnPFF (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -39,8 +61,8 @@ public class MainPageTest extends Base {
     }
 
     @Test
-    @Order(3)
-    @DisplayName("SignUp field in the Discover Pro Trading banner. Start Trading button. ASIC")
+    @Order(5)
+    @DisplayName("SignUp form in the Discover Pro Trading banner. Start Trading button. ASIC")
     public void checkSingUP_BP_BtnSTASIC() {
         open("https://capital.com/?license=ASIC");
         mainPage.choiceBannerPRO();
@@ -49,8 +71,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(4)
-    @DisplayName("SignUp field in the Best Platform banner. Start Trading button.")
+    @Order(6)
+    @DisplayName("SignUp form in the Best Platform banner. Start Trading button.")
     public void checkSingUP_BP_BtnST (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -63,8 +85,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(5)
-    @DisplayName("SignUp field in the Best Platform banner. Practice for free button.")
+    @Order(7)
+    @DisplayName("SignUp form in the Best Platform banner. Practice for free button.")
     public void checkSingUP_BP_BtnPFF (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -77,9 +99,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(6)
-    @DisplayName("Most traded.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(8)
+    @DisplayName("SignUp form in the interactive widget table. Most traded.")
     public void checkMTR (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -88,9 +109,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(7)
-    @DisplayName("Commodities.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(9)
+    @DisplayName("SignUp form in the interactive widget table. Commodities.")
     public void checkCOM (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -99,9 +119,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(8)
-    @DisplayName("Indices.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(10)
+    @DisplayName("SignUp form in the interactive widget table. Indices.")
     public void checkIND (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -110,9 +129,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(9)
-    @DisplayName("Crypto.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(11)
+    @DisplayName("SignUp form in the interactive widget table. Crypto.")
     public void checkCRYP (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -122,9 +140,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(10)
-    @DisplayName("Shares.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(12)
+    @DisplayName("SignUp form in the interactive widget table. Shares.")
     public void checkSHAR (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -133,9 +150,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(11)
-    @DisplayName("Forex.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(13)
+    @DisplayName("SignUp form in the interactive widget table. Forex.")
     public void checkFX (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -144,9 +160,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(12)
-    @DisplayName("ETFs.")
-    @Description("SignUp form in the interactive widget table.")
+    @Order(14)
+    @DisplayName("SignUp form in the interactive widget table. ETFs.")
     public void checkETF (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -155,8 +170,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(13)
-    @DisplayName("SignUp field in the Still Looking For banner.")
+    @Order(15)
+    @DisplayName("SignUp form in the Still Looking For banner.")
     public void checkCreateBtn (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -166,8 +181,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(14)
-    @DisplayName("SignUp field in the Slider Fade banner.")
+    @Order(16)
+    @DisplayName("SignUp form in the Slider Fade banner.")
     public void checkSliderFade (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -176,8 +191,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(15)
-    @DisplayName("SignUp field in the Explore our platform banner.")
+    @Order(17)
+    @DisplayName("SignUp form in the Explore our platform banner.")
     public void checkTryNowBtnEOP (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -187,8 +202,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(16)
-    @DisplayName("SignUp field in the banner New to trading?.")
+    @Order(18)
+    @DisplayName("SignUp form in the banner New to trading?.")
     public void checkPracForFreeBtnNewToTR (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -198,8 +213,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(17)
-    @DisplayName("SignUp field in the Calculator banner.")
+    @Order(19)
+    @DisplayName("SignUp form in the Calculator banner.")
     public void checkStartTradBtnCalc (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -209,8 +224,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(18)
-    @DisplayName("SignUp field in the Trader's Dashboard banner.")
+    @Order(20)
+    @DisplayName("SignUp form in the Trader's Dashboard banner.")
     public void checkTradeBtnTradeDashb (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -219,8 +234,8 @@ public class MainPageTest extends Base {
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
-    @Order(19)
-    @DisplayName("SignUp field in the banner Why choose Capital.com?.")
+    @Order(21)
+    @DisplayName("SignUp form in the banner Why choose Capital.com?.")
     public void checkTryNowBtnWhyCC (String license, String logLicense) {
         open(license);
         String log = logLicense;
