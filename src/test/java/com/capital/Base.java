@@ -1,4 +1,4 @@
-package tests;
+package com.capital;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -12,7 +12,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-import static pageObject.HeaderPage.COOKIE;
+import static com.capital.pageObject.HeaderPage.COOKIE;
 
 
 public class Base {

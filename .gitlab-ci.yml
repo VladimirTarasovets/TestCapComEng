@@ -4,21 +4,21 @@ stages:
   - tests
   - allure
 
-Header Page Test:
+Main Page Test (English):
   stage: tests
   allow_failure: true
   script:
-    - mvn test -Dtest="HeaderPageTest"
+    - mvn test -Dtest="MainPageENTest"
   artifacts:
     when: always
     paths:
       - target/allure-results
 
-Main Page Test:
+Main Page Test (Arabic):
   stage: tests
   allow_failure: true
   script:
-    - mvn test -Dtest="MainPageTest"
+    - mvn test -Dtest="MainPageARTest"
   artifacts:
     when: always
     paths:
@@ -33,9 +33,3 @@ Allure report:
     when: always
     paths:
       - target/site/allure-maven-plugin/*
-
-#
-#variables:
-#  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-#       - mvn $MAVEN_OPTS clean package
-#

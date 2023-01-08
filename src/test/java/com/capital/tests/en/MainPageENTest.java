@@ -1,25 +1,25 @@
-package tests.en;
+package com.capital.tests.en;
 
+import com.capital.Base;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import pageObject.HeaderPage;
-import pageObject.MainPage;
+import com.capital.pageObject.HeaderPage;
+import com.capital.pageObject.MainPage;
 import org.junit.jupiter.api.*;
-import tests.Base;
 
 import static com.codeborne.selenide.Selenide.open;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@DisplayName("Checking the main page of the site. English")
-public class MainPageTestEN extends Base {
+@DisplayName("Check the login and registration buttons on the main page. (English)")
+public class MainPageENTest extends Base {
     MainPage mainPage = new MainPage();
     HeaderPage headerPage = new HeaderPage();
 
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(1)
-    @DisplayName("Checking the site header. Login form.")
+    @DisplayName("Check the site header. Login form.")
     public void checkLogin (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -29,7 +29,7 @@ public class MainPageTestEN extends Base {
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(2)
-    @DisplayName("Checking the site header. SignUp form.")
+    @DisplayName("Check the site header. SignUp form.")
     public void checkSingUp (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -39,7 +39,7 @@ public class MainPageTestEN extends Base {
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(3)
-    @DisplayName("SignUp form in the CFD banner. Trade Now button.")
+    @DisplayName("SignUp form in the CFD slider. Trade Now button.")
     public void checkSingUP_CFD_BtnTN (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -51,7 +51,7 @@ public class MainPageTestEN extends Base {
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(4)
-    @DisplayName("SignUp form in the CFD banner. Practice for free button.")
+    @DisplayName("SignUp form in the CFD slider. Practice for free button.")
     public void checkSingUP_CFD_BtnPFF (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -62,7 +62,7 @@ public class MainPageTestEN extends Base {
 
     @Test
     @Order(5)
-    @DisplayName("SignUp form in the Discover Pro Trading banner. Start Trading button. ASIC")
+    @DisplayName("SignUp form in the Discover Pro Trading slider. Start Trading button. ASIC")
     public void checkSingUP_BP_BtnSTASIC() {
         open("https://capital.com/?license=ASIC");
         mainPage.choiceBannerPRO();
@@ -72,7 +72,7 @@ public class MainPageTestEN extends Base {
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(6)
-    @DisplayName("SignUp form in the Best Platform banner. Start Trading button.")
+    @DisplayName("SignUp form in the Best Platform slider. Start Trading button.")
     public void checkSingUP_BP_BtnST (String license, String logLicense) {
         open(license);
         String log = logLicense;
@@ -86,11 +86,11 @@ public class MainPageTestEN extends Base {
     @ParameterizedTest(name = "{1}")
     @CsvFileSource(resources = "/Licence.csv")
     @Order(7)
-    @DisplayName("SignUp form in the Best Platform banner. Practice for free button.")
+    @DisplayName("SignUp form in the Best Platform slider. Practice for free button.")
     public void checkSingUP_BP_BtnPFF (String license, String logLicense) {
         open(license);
         String log = logLicense;
-        if (!log.equals("ASIC")) {     // The ASIC license does not contain this banner
+        if (!log.equals("ASIC")) {     // The ASIC license does not contain this slider
             mainPage.choiceBannerBP();
             mainPage.clickBtnPFF_BP();
             mainPage.checkSingUpForm();
