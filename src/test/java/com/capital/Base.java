@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
@@ -20,6 +21,9 @@ public class Base {
     @BeforeAll
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true));
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        Configuration.browserCapabilities = options;
         Configuration.headless = true;
         open("https://capital.com");
         COOKIE.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
