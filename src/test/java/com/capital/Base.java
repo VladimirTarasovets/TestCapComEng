@@ -8,6 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
@@ -22,9 +23,8 @@ public class Base {
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true));
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--remote-allow-origins=*", "--headless", "--window-size=1920,1080");
         Configuration.browserCapabilities = options;
-        Configuration.headless = true;
         open("https://capital.com");
         COOKIE.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
     }
